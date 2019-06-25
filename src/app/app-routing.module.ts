@@ -1,9 +1,13 @@
+import { TableModule } from './smallComponents/table/table.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Shell } from '@app/shell/shell.service';
 
 const routes: Routes = [
-  Shell.childRoutes([{ path: 'about', loadChildren: 'app/about/about.module#AboutModule' }]),
+  Shell.childRoutes([
+    { path: 'about', loadChildren: 'app/about/about.module#AboutModule' },
+    { path: 'table-module', loadChildren: 'app/smallComponents/table/table.module#TableModule' }
+  ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
